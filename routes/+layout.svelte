@@ -26,11 +26,12 @@
 	}
 
 	html,
-	body {
+	body,
+	#root {
 		height: 100%;
 	}
 
-	body {
+	#root {
 		// Position the two pages on top of each other
 		display: grid;
 	}
