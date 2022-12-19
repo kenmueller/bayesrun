@@ -2,26 +2,24 @@
 	import MetaImage from '$components/Meta/Image.svelte'
 	import MetaTitle from '$components/Meta/Title.svelte'
 	import MetaDescription from '$components/Meta/Description.svelte'
+	import Toolbar from '$components/Toolbar.svelte'
 </script>
 
 <MetaImage />
 <MetaTitle />
 <MetaDescription />
 
-<main>
-	<h1>bayes.run</h1>
-</main>
+<div>
+	<Toolbar />
+	<main>
+		<h1>bayes.run</h1>
+	</main>
+</div>
 
 <style lang="scss">
-	main {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+	div {
+		display: grid;
+		grid-template-rows: auto 1fr;
 		height: 100%;
-	}
-
-	h1 {
-		text-align: center;
 	}
 </style>
