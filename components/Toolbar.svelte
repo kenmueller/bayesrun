@@ -1,14 +1,15 @@
 <script lang="ts">
 	import currentNetwork from '$lib/network/current'
+	import currentNetworkName from '$lib/network/current/name'
 	import readFile from '$lib/file/read'
 	import errorFromValue from '$lib/error/from/value'
 	import writeFile from '$lib/file/write'
 
-	let name: string | null = null
-
 	const newNetwork = () => {
 		if (!confirm('This will overwrite the current network.')) return
+
 		$currentNetwork = {}
+		$currentNetworkName = null
 	}
 
 	const loadNetwork = async () => {
@@ -16,7 +17,7 @@
 			const [file] = await readFile(['bayes'])
 
 			$currentNetwork = JSON.parse(await file.text())
-			name = file.name
+			$currentNetworkName = file.name
 		} catch (value) {
 			console.error(value)
 			alert(errorFromValue(value).message)
@@ -24,18 +25,12 @@
 	}
 
 	const saveNetwork = () => {
-		writeFile(name || 'Untitled.bayes', JSON.stringify($currentNetwork))
-	}
-
-	const unload = (event: BeforeUnloadEvent) => {
-		event.preventDefault()
-
-		return (event.returnValue =
-			"Your changes will be lost if you don't save them.")
+		writeFile(
+			$currentNetworkName || 'Untitled.bayes',
+			JSON.stringify($currentNetwork)
+		)
 	}
 </script>
-
-<svelte:window on:beforeunload={unload} />
 
 <nav>
 	<h1>bayes.run</h1>
