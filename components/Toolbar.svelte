@@ -26,7 +26,16 @@
 	const saveNetwork = () => {
 		writeFile(name || 'Untitled.bayes', JSON.stringify($currentNetwork))
 	}
+
+	const unload = (event: BeforeUnloadEvent) => {
+		event.preventDefault()
+
+		return (event.returnValue =
+			"Your changes will be lost if you don't save them.")
+	}
 </script>
+
+<svelte:window on:beforeunload={unload} />
 
 <nav>
 	<h1>bayes.run</h1>
