@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let value = 'svelte-template'
+	export let value = 'Run your Bayesian networks'
 </script>
 
 <svelte:head>
