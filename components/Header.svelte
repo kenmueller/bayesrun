@@ -42,12 +42,19 @@
 <style lang="scss">
 	nav {
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
+		position: absolute;
+		left: 1rem;
+		right: 1rem;
+		top: 1rem;
 		padding: 0.5rem 1rem;
+		background: white;
+		border-radius: 0.5rem;
+		box-shadow: 0 0 20px 5px rgba(black, 0.1);
 	}
 
 	h1 {
-		margin: 0 0.5rem -0.16rem 0;
+		margin: -0.2rem 0.5rem 0 0;
 	}
 
 	button {

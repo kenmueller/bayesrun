@@ -4,25 +4,20 @@
 	import MetaImage from '$components/Meta/Image.svelte'
 	import MetaTitle from '$components/Meta/Title.svelte'
 	import MetaDescription from '$components/Meta/Description.svelte'
-	import Toolbar from '$components/Toolbar.svelte'
+	import Header from '$components/Header.svelte'
+	import Footer from '$components/Footer.svelte'
 </script>
 
 <MetaImage />
 <MetaTitle />
 <MetaDescription />
 
-<div>
-	<Toolbar />
-	<main>
-		<p>{JSON.stringify($currentNetworkName)}</p>
-		<p>{JSON.stringify($currentNetwork)}</p>
-	</main>
-</div>
+<Header />
+<main>
+	<p>{JSON.stringify($currentNetworkName)}</p>
+	<p>{JSON.stringify($currentNetwork)}</p>
+</main>
+<Footer />
 
 <style lang="scss">
-	div {
-		display: grid;
-		grid-template-rows: auto 1fr;
-		height: 100%;
-	}
 </style>
