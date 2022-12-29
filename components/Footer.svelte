@@ -36,6 +36,7 @@
 		border-radius: 0.5rem;
 		box-shadow: 0 0 20px 5px rgba(black, 0.1);
 		transform: translateX(-50%);
+		z-index: 100;
 
 		> :global(button + button) {
 			margin-left: $spacing;

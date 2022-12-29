@@ -4,6 +4,8 @@
 	import MetaBase from '$components/Meta/Base.svelte'
 	import PageTransition from '$components/Transition/Page.svelte'
 
+	import '$styles/katex.less'
+
 	export let data: LayoutData
 </script>
 
@@ -31,6 +33,10 @@
 		height: 100%;
 	}
 
+	body {
+		overflow: hidden;
+	}
+
 	#root {
 		// Position the two pages on top of each other
 		display: grid;
@@ -47,6 +53,10 @@
 		&:disabled {
 			cursor: default;
 		}
+	}
+
+	[role='button'] {
+		cursor: pointer;
 	}
 
 	svg {

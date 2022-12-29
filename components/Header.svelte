@@ -8,7 +8,7 @@
 	const newNetwork = () => {
 		if (!confirm('This will overwrite the current network.')) return
 
-		$currentNetwork = {}
+		$currentNetwork = { nodes: [], arrows: [] }
 		$currentNetworkName = null
 	}
 
@@ -51,6 +51,7 @@
 		background: white;
 		border-radius: 0.5rem;
 		box-shadow: 0 0 20px 5px rgba(black, 0.1);
+		z-index: 100;
 	}
 
 	h1 {
