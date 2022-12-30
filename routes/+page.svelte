@@ -109,7 +109,6 @@
 						from: $currentNetwork.nodes[$currentArrow],
 						to: $currentCursor
 					}}
-					padding={false}
 				/>
 			{/if}
 		</svg>
