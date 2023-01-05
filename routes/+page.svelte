@@ -46,6 +46,7 @@
 
 				$currentNetwork.nodes.push({
 					name: `Variable #${$currentNetwork.nodes.length}`,
+					element: null,
 					x: $currentCursor.x,
 					y: $currentCursor.y
 				})
@@ -97,18 +98,14 @@
 			{#each $currentNetwork.arrows as arrow}
 				<ArrowElement
 					{arrow}
-					position={{
-						from: $currentNetwork.nodes[arrow.from],
-						to: $currentNetwork.nodes[arrow.to]
-					}}
+					from={$currentNetwork.nodes[arrow.from]}
+					to={$currentNetwork.nodes[arrow.to]}
 				/>
 			{/each}
 			{#if !($currentArrow === null || $currentCursor === null)}
 				<ArrowElement
-					position={{
-						from: $currentNetwork.nodes[$currentArrow],
-						to: $currentCursor
-					}}
+					from={$currentNetwork.nodes[$currentArrow]}
+					to={$currentCursor}
 				/>
 			{/if}
 		</svg>

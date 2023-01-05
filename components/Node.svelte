@@ -11,6 +11,13 @@
 	export let id: number
 	export let node: Node
 
+	let element: HTMLDivElement | null = null
+
+	$: if (element && node.element !== element) {
+		$currentNetwork.nodes[id] = { ...node, element }
+		$currentNetwork = { ...$currentNetwork }
+	}
+
 	let originalCursor: Cursor | null = null
 	let draggingCursor: Cursor | null = null
 
@@ -67,7 +74,7 @@
 				$currentArrow = null
 				break
 			}
-			case 'delete':
+			case 'delete': {
 				if (!didClick) break
 
 				$currentNetwork.nodes.splice(id, 1)
@@ -78,6 +85,11 @@
 				$currentNetwork = { ...$currentNetwork }
 
 				break
+			}
+			default: {
+				if (!didClick) break
+				// TODO: Show dropdown
+			}
 		}
 
 		originalCursor = draggingCursor = null
@@ -94,6 +106,7 @@
 		--center-x: {$center.x}px;
 		--center-y: {$center.y}px;
 	"
+	bind:this={element}
 	on:mousedown={onCursorDown}
 	on:touchstart={onCursorDown}
 	on:mouseup={onCursorUp}
