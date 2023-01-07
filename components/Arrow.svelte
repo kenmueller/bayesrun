@@ -8,7 +8,7 @@
 	import currentTool from '$lib/tool/current'
 	import cursorHandler from '$lib/cursor/handler'
 
-	export let arrow: Arrow<number> | null = null
+	export let arrow: Arrow | null = null
 	export let from: Node
 	export let to: Node | Position
 

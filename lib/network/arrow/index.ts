@@ -1,6 +1,5 @@
-import type Position from '$lib/position'
-
-export default interface Arrow<Point extends number | Position = number> {
-	from: Point
-	to: Point
+/** `from` and `to` are Node IDs. */
+export default interface Arrow {
+	from: number
+	to: number
 }
